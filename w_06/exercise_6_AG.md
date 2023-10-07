@@ -40,13 +40,14 @@ The example is set up to learn a *language model* and generate text from it (so 
 
 ## Task 2: Understanding Gating in RNNs
 
-Now we switch to tensorflow(-keras) and explore gating in RNNs, via *w06_rnn_text_classification_tensorflow* (or in [Colab](https://colab.research.google.com/drive/1yEBdIlV5Lr7dOVCga49WcGXriipvp29r)).
+Now we switch to tensorflow(-keras) and explore gating in RNNs, via *w06_rnn_text_generation_tensorflow.ipynb* (or in [Colab](https://colab.research.google.com/drive/1o6umoAPnwCL6PBk6dNj52u9xWKuPpWrX)).
 
 The example is another text generation example with many in-detail explanations, thus it shows the major steps in solving NLP tasks with RNNs but is also very long. So carefully go through all steps and learn how technical details are realised differently from torch.
  
 Retrace the implementation of the model and:
 
 - Modify the example to run with the SimpleRNN instead of the GRU and note down your results as a baseline. How did the network perform (quality)?
+   - 10 epochs GRU performed better han 20 epochs SimpleRNN
 
 - Now run the model using GRU: what are the major effects in training (speed and convergence) and results (quality)?
 
@@ -55,6 +56,9 @@ Retrace the implementation of the model and:
    - Is the performance different compared to using GRUs?
   
 - Compare the parameters of the needed number for decent performance between GRU, LSTM and the baseline (the baseline/SimpleRNN might not converge)?
+   - SimpleRNN: Typically requires more units to capture long-term dependencies due to the vanishing gradient problem.
+   - GRU: Generally requires fewer parameters than LSTM and may converge faster. Suitable for simpler tasks.
+   - LSTM: Usually has more parameters compared to GRU but is effective in capturing long-term dependencies.
 
 
 ## Optional expert task 3:
